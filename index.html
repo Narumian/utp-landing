@@ -100,8 +100,8 @@
 
       .hero {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 28px;
+        grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+        gap: 34px;
         align-items: center;
         min-height: calc(100vh - 56px);
         padding: 36px 0 56px;
@@ -204,7 +204,7 @@
           radial-gradient(circle at 80% 24%, rgba(142, 255, 200, 0.18), transparent 18%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
         box-shadow: var(--shadow);
-        padding: 20px;
+        padding: 16px;
         overflow: hidden;
       }
 
@@ -214,14 +214,14 @@
         align-items: center;
         justify-content: center;
         min-height: 100%;
-        gap: 18px;
+        gap: 14px;
       }
 
       .app-store-card {
         position: relative;
-        width: min(340px, 100%);
+        width: min(286px, 100%);
         aspect-ratio: 1 / 1;
-        border-radius: 34px;
+        border-radius: 30px;
         background:
           radial-gradient(circle at 25% 20%, rgba(139, 211, 255, 0.18), transparent 24%),
           radial-gradient(circle at 78% 78%, rgba(142, 255, 200, 0.14), transparent 26%),
@@ -259,8 +259,8 @@
 
       .app-store-banner img {
         display: block;
-        width: 224px;
-        height: 82px;
+        width: 210px;
+        height: 77px;
         vertical-align: middle;
         object-fit: contain;
       }
