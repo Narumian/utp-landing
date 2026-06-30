@@ -14,9 +14,8 @@ Static landing page for UTP.
 - https://apps.apple.com/app/utp/id6762989079
 
 ## How to use
-1. Replace `https://YOUR-DOMAIN.example/` in `index.html` with the real published URL.
+1. Publish the folder contents with GitHub Pages or another static host.
 2. Update the App Store link if the product URL changes.
-3. Publish the folder contents with GitHub Pages or another static host.
 
 ## Notes
 - This page is intentionally a single HTML file so it can be deployed without a build step.
