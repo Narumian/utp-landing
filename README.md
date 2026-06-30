@@ -2,6 +2,9 @@
 
 Static landing page for UTP.
 
+## Page
+- https://narumian.github.io/utp-landing/
+
 ## Files
 - `index.html` - Japanese landing page
 - `en/index.html` - English landing page
