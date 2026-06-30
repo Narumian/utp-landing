@@ -44,6 +44,10 @@ a {
 }
 
 .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   padding: 20px 0 0;
 }
 
@@ -63,6 +67,26 @@ a {
   display: block;
   object-fit: cover;
   box-shadow: 0 10px 24px rgba(139, 211, 255, 0.28);
+}
+
+.language-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.language-nav a,
+.language-nav span {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.language-nav span {
+  color: var(--text);
 }
 
 .hero {
@@ -382,6 +406,16 @@ h1 {
   line-height: 1.75;
 }
 
+.panel-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.section-actions {
+  margin-top: 18px;
+}
+
 .faq {
   display: grid;
   gap: 12px;
@@ -437,6 +471,15 @@ h1 {
 @media (max-width: 640px) {
   .wrap {
     width: min(100% - 22px, 1120px);
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .language-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .mock {

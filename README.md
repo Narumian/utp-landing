@@ -3,7 +3,13 @@
 Static landing page for UTP.
 
 ## Files
-- `index.html`
+- `index.html` - Japanese landing page
+- `en/index.html` - English landing page
+- `zh-CN/index.html` - Simplified Chinese landing page
+- `ko/index.html` - Korean landing page
+- `es/index.html` - Spanish landing page
+- `de/index.html` - German landing page
+- `styles.css` - shared styles
 
 ## Purpose
 - Provide a public page that can be published on GitHub Pages or any other static host.
@@ -18,5 +24,5 @@ Static landing page for UTP.
 2. Update the App Store link if the product URL changes.
 
 ## Notes
-- This page is intentionally a single HTML file so it can be deployed without a build step.
-- If you want localized versions later, duplicate this file into language folders and adjust the `lang` attribute, title, and copy.
+- This page is intentionally plain static HTML/CSS so it can be deployed without a build step.
+- The Japanese page is published at `/`; localized pages are published at `/en/`, `/zh-CN/`, `/ko/`, `/es/`, and `/de/`.
