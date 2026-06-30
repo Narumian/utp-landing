@@ -10,6 +10,9 @@ Static landing page for UTP.
 - Serve as the search-friendly entry point for UTP marketing.
 - Keep the page simple enough to maintain as the product evolves.
 
+## App Store
+- https://apps.apple.com/app/utp/id6762989079
+
 ## How to use
 1. Replace `https://YOUR-DOMAIN.example/` in `index.html` with the real published URL.
 2. Update the App Store link if the product URL changes.
