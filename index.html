@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#09121f" />
+    <meta
+      name="description"
+      content="UTPは、3つのスロットに音を重ねてアンビエントサウンドを作るアプリです。睡眠、作業、瞑想に使える買い切り音楽アプリ。"
+    />
+    <meta
+      name="keywords"
+      content="UTP,アンビエント,環境音,睡眠,作業,瞑想,ドローン,フィールドレコーディング,音楽アプリ"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="UTP - 3つの音を重ねて、空気感をつくる" />
+    <meta
+      property="og:description"
+      content="3つのスロットに音を重ねて、睡眠・作業・瞑想に使えるアンビエントを作る。"
+    />
+    <meta property="og:url" content="https://YOUR-DOMAIN.example/" />
+    <meta
+      property="og:image"
+      content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/07/1c/71071cbb-475a-2e8a-a1fd-6b75ba0cb18b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1200x630wa.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UTP - 3つの音を重ねて、空気感をつくる" />
+    <meta
+      name="twitter:description"
+      content="睡眠・作業・瞑想に使えるアンビエントアプリ。無料2本入り。"
+    />
+    <title>UTP - 3つの音を重ねて、空気感をつくる</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07111d;
+        --bg2: #101f32;
+        --panel: rgba(12, 22, 36, 0.72);
+        --panel-strong: rgba(17, 30, 48, 0.92);
+        --text: #edf4ff;
+        --muted: #a7b4c8;
+        --line: rgba(173, 194, 227, 0.18);
+        --accent: #8bd3ff;
+        --accent-2: #8effc8;
+        --accent-3: #ffd38e;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: "Avenir Next", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(139, 211, 255, 0.18), transparent 24%),
+          radial-gradient(circle at top right, rgba(142, 255, 200, 0.16), transparent 22%),
+          radial-gradient(circle at 50% 20%, rgba(255, 211, 142, 0.1), transparent 18%),
+          linear-gradient(145deg, var(--bg), var(--bg2) 62%, #050a12);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        padding: 20px 0 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(139, 211, 255, 0.95), rgba(142, 255, 200, 0.9));
+        box-shadow: 0 10px 24px rgba(139, 211, 255, 0.28);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: center;
+        min-height: calc(100vh - 56px);
+        padding: 36px 0 56px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(44px, 7vw, 80px);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .lede {
+        margin: 20px 0 0;
+        max-width: 44rem;
+        font-size: clamp(17px, 2.3vw, 21px);
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        font-weight: 700;
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(173, 194, 227, 0.3);
+      }
+
+      .button.primary {
+        border-color: rgba(139, 211, 255, 0.42);
+        background: linear-gradient(135deg, rgba(139, 211, 255, 0.2), rgba(142, 255, 200, 0.16));
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .stat {
+        padding: 14px 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 22px;
+        letter-spacing: -0.03em;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .mock {
+        position: relative;
+        border-radius: 30px;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at 20% 18%, rgba(139, 211, 255, 0.22), transparent 22%),
+          radial-gradient(circle at 80% 24%, rgba(142, 255, 200, 0.18), transparent 18%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        box-shadow: var(--shadow);
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      .mock::before {
+        content: "";
+        position: absolute;
+        inset: auto -12% -18% auto;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 211, 142, 0.18), transparent 64%);
+        filter: blur(2px);
+        pointer-events: none;
+      }
+
+      .screen {
+        display: grid;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 24px;
+        background: var(--panel);
+        border: 1px solid rgba(173, 194, 227, 0.14);
+        backdrop-filter: blur(18px);
+      }
+
+      .screen-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .slot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .slot {
+        min-height: 120px;
+        padding: 14px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        border: 1px solid rgba(173, 194, 227, 0.12);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .slot-label {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .slot-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .slot-meta {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .slot.a {
+        box-shadow: inset 0 0 0 1px rgba(139, 211, 255, 0.12);
+      }
+
+      .slot.b {
+        box-shadow: inset 0 0 0 1px rgba(142, 255, 200, 0.1);
+      }
+
+      .slot.c {
+        box-shadow: inset 0 0 0 1px rgba(255, 211, 142, 0.12);
+      }
+
+      .section {
+        padding: 12px 0 0;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        font-size: 15px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+      }
+
+      .panel h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+
+      .panel ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .faq {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(173, 194, 227, 0.12);
+      }
+
+      .faq-item strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      .faq-item span {
+        display: block;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .footer {
+        padding: 30px 0 48px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footer a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .split,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 24px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          width: min(100% - 22px, 1120px);
+        }
+
+        .mock {
+          padding: 14px;
+          border-radius: 24px;
+        }
+
+        .screen {
+          padding: 12px;
+          border-radius: 20px;
+        }
+
+        .slot-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .slot {
+          min-height: 104px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "UTP",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "iOS, iPadOS, macOS",
+        "description": "3つのスロットに音を重ねてアンビエントサウンドを作るアプリ。",
+        "offers": {
+          "@type": "Offer",
+          "price": "800",
+          "priceCurrency": "JPY"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar wrap">
+      <a class="brand" href="#top" aria-label="UTP home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>UTP</span>
+      </a>
+    </header>
+
+    <main id="top" class="wrap">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Ambient music app · 3-slot layering · one-time unlock</div>
+          <h1>3つの音を重ねて、<br />空気感をつくる。</h1>
+          <p class="lede">
+            UTP は、3つのスロットに音を入れて同時再生するアンビエントアプリです。
+            環境音、ドローン、フィールドレコーディングを重ねて、睡眠・作業・瞑想に合うサウンドを作れます。
+          </p>
+
+          <div class="actions">
+            <a class="button primary" href="https://apps.apple.com/jp/app/utp/id6762989079" target="_blank" rel="noopener noreferrer">App Storeで開く</a>
+            <a class="button" href="#features">特徴を見る</a>
+          </div>
+
+          <div class="stats" aria-label="key facts">
+            <div class="stat">
+              <strong>3 slots</strong>
+              <span>音を重ねて変化を作る</span>
+            </div>
+            <div class="stat">
+              <strong>2 free</strong>
+              <span>最初から2本使える</span>
+            </div>
+            <div class="stat">
+              <strong>Buy once</strong>
+              <span>追加アセットは買い切り</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock" aria-label="UTP preview">
+          <div class="screen">
+            <div class="screen-head">
+              <div class="pill">Now playing · ambient field</div>
+              <div class="pill">Sleep / Focus / Meditation</div>
+            </div>
+            <div class="slot-grid">
+              <div class="slot a">
+                <div class="slot-label">Slot 1</div>
+                <div>
+                  <div class="slot-title">Nature</div>
+                  <div class="slot-meta">静かな環境音をベースにする</div>
+                </div>
+              </div>
+              <div class="slot b">
+                <div class="slot-label">Slot 2</div>
+                <div>
+                  <div class="slot-title">Bright</div>
+                  <div class="slot-meta">少し明るい空気を足す</div>
+                </div>
+              </div>
+              <div class="slot c">
+                <div class="slot-label">Slot 3</div>
+                <div>
+                  <div class="slot-title">Relaxation</div>
+                  <div class="slot-meta">長時間向けに広がりを足す</div>
+                </div>
+              </div>
+            </div>
+            <div class="panel" style="margin-top: 4px">
+              <h3 style="margin-top: 0">使い方は3手だけ</h3>
+              <ul>
+                <li>スロットをタップして音を選ぶ</li>
+                <li>そのまま再生して混ぜる</li>
+                <li>睡眠・作業・瞑想に合わせて調整する</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <h2 class="section-title">Features</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>3つのスロット</h3>
+            <p>1つずつ音を入れて、重ねながら空気感を調整できます。</p>
+          </article>
+          <article class="card">
+            <h3>無料2本入り</h3>
+            <p>最初から試せるので、使い心地をすぐ確認できます。</p>
+          </article>
+          <article class="card">
+            <h3>買い切りで拡張</h3>
+            <p>必要なアセットだけ追加して、少しずつ広げられます。</p>
+          </article>
+          <article class="card">
+            <h3>用途で使い分け</h3>
+            <p>睡眠、作業、瞑想、散歩や休憩まで、場面ごとに組み替えられます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="split">
+          <div class="panel">
+            <h3>こんな人向け</h3>
+            <ul>
+              <li>静かな音を流して寝たい</li>
+              <li>作業中の背景音を整えたい</li>
+              <li>瞑想や呼吸の時間をつくりたい</li>
+              <li>環境音を3つ重ねて試したい</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>よくある質問</h3>
+            <div class="faq">
+              <div class="faq-item">
+                <strong>Q. すぐ使える？</strong>
+                <span>無料の2本が入っているので、インストール直後から試せます。</span>
+              </div>
+              <div class="faq-item">
+                <strong>Q. 何が独自なの？</strong>
+                <span>3つのスロットに音を重ねて、1つの音場を作るところです。</span>
+              </div>
+              <div class="faq-item">
+                <strong>Q. 追加はサブスク？</strong>
+                <span>買い切りで追加する設計です。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <h3>UTP の使い道</h3>
+          <ul>
+            <li>睡眠前に静かな環境をつくる</li>
+            <li>作業中に邪魔しない背景音を置く</li>
+            <li>瞑想や呼吸に合わせて音の密度を変える</li>
+            <li>散歩や休憩で空気感を持ち歩く</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <h3>App Store で開く</h3>
+          <p style="margin: 0; color: var(--muted); line-height: 1.8">
+            UTP は App Store で配信しています。まずは無料の2本を試して、必要に応じてアセットを追加してください。
+          </p>
+          <div class="actions" style="margin-top: 18px">
+            <a class="button primary" href="https://apps.apple.com/jp/app/utp/id6762989079" target="_blank" rel="noopener noreferrer">UTP を開く</a>
+            <a class="button" href="mailto:?subject=UTP&body=https://apps.apple.com/jp/app/utp/id6762989079">共有する</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <div>
+        UTP Landing Page. Source link:
+        <a href="https://apps.apple.com/jp/app/utp/id6762989079" target="_blank" rel="noopener noreferrer">App Store</a>
+      </div>
+      <div style="margin-top: 8px">
+        Public page for GitHub Pages or any static host. Replace <code>YOUR-DOMAIN.example</code> in the OG URL when you publish.
+      </div>
+    </footer>
+  </body>
+</html>
